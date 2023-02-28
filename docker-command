@@ -1,0 +1,50 @@
+Docker Installation on Linux Commands:
+	--> sudo yum update -y
+	--> sudo yum install docker -y
+	--> sudo service docker start
+
+--> Give permission to user accounts
+	--> sudo usermod -aG docker ec2-user (usermod command is used to add ec2-user to docker group)
+	--> exit
+
+--> restart the session
+---------------------------------------------------------------------------------------------------------------------------------
+
+Docker info command to check docker is running or not
+--------------------------------------------------------------------------------------------------------------------------------
+
+Basic docker Commands:
+	-> To display docker images in our machine: docker images
+	-> Example: docker pull hello-world
+	-> Docker is by default connected with docker hub
+
+Download docker image:
+	-> docker pull <image name> (By default we can pull public images )
+
+Run docker image:
+	-> docker run <image name>
+	-> Example: docker run hello-world (we can use image name or image id to run the image)
+	-> Whenever we run the image first docker will search image in the machine locally, if docker is enable to find then it will pull from docker hub
+
+To remove the image:
+	-> docker rmi <image-id/image-name> (rmi is the command which is used to remove the image)
+	-> While delete image docker image must not be used by any container or stop container
+
+To forcefully remove the image:
+	-> docker rmi -f <image-id/image-name> (rmi -f is the command which is used to remove the image)
+	-> To focre fully delete the image if it is linked with some container
+
+To see the list of running containers
+	-> docker ps (docker ps is the command is used to display running containers)
+
+To see the list of all containers
+	-> docker ps -a (docker ps -a is the command is used to display all containers)
+
+To stop the docker container
+	-> docker stop <container name>
+
+To delete the docker container
+	-> docker rm <container id>
+
+To delete all stoped container and unused images:
+	-> docker prune system -a
